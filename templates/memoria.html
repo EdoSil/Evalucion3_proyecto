@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Memoria de Registros{% endblock %}
+
+{% block content %}
+
+<h1>Memoria de Registros</h1>
+
+<h2>Ejercicio 1 - Notas</h2>
+{% if registros_notas %}
+    <table border="1" cellpadding="8">
+        <tr>
+            <th>Nota 1</th>
+            <th>Nota 2</th>
+            <th>Nota 3</th>
+            <th>Asistencia</th>
+            <th>Promedio</th>
+            <th>Resultado</th>
+        </tr>
+
+        {% for r in registros_notas %}
+        <tr>
+            <td>{{ r.nota1 }}</td>
+            <td>{{ r.nota2 }}</td>
+            <td>{{ r.nota3 }}</td>
+            <td>{{ r.asistencia }}%</td>
+            <td>{{ r.promedio }}</td>
+            <td>{{ r.mensaje }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No hay registros de notas todavía.</p>
+{% endif %}
+
+<hr>
+
+<h2>Ejercicio 2 - Nombres</h2>
+{% if registros_nombres %}
+    <table border="1" cellpadding="8">
+        <tr>
+            <th>Nombre 1</th>
+            <th>Nombre 2</th>
+            <th>Nombre 3</th>
+            <th>Nombre más largo</th>
+            <th>Caracteres</th>
+        </tr>
+
+        {% for n in registros_nombres %}
+        <tr>
+            <td>{{ n.nombre1 }}</td>
+            <td>{{ n.nombre2 }}</td>
+            <td>{{ n.nombre3 }}</td>
+            <td>{{ n.nombre_mas_largo }}</td>
+            <td>{{ n.caracteres }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No hay registros de nombres todavía.</p>
+{% endif %}
+
+<br>
+<a href="/">Volver al inicio</a>
+
+
+
+{% endblock %}

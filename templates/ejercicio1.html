@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Ejercicio 1 - Formulario Notas{% endblock %}
+
+{% block content %}
+<h1>Formulario de Notas</h1>
+
+<div class="container" >
+
+
+<form action="/ejercicio1" method="post">
+
+    <label for="nota1">Nota 1:</label><br>
+    <input type="number" id="nota1" name="nota1" step="0.1" required><br><br>
+    {% if errors.nota1 %}
+        <span style="color:red">{{ errors.nota1 }}</span><br>
+    {% endif %}
+
+    <label for="nota2">Nota 2:</label><br>
+    <input type="number" id="nota2" name="nota2" step="0.1" required><br><br>
+    {% if errors.nota2 %}
+        <span style="color:red">{{ errors.nota2 }}</span><br>
+    {% endif %}
+
+    <label for="nota3">Nota 3:</label><br>
+    <input type="number" id="nota3" name="nota3" step="0.1" required><br><br>
+    {% if errors.nota3 %}
+        <span style="color:red">{{ errors.nota3 }}</span><br>
+    {% endif %}
+
+    <label for="asistencia">Asistencia (%):</label><br>
+    <input type="number" id="asistencia" name="asistencia" min="0" max="100" required><br><br>
+    {% if errors.asistencia %}
+        <span style="color:red">{{ errors.asistencia }}</span><br>
+    {% endif %}
+    <button type="submit">Enviar</button>
+</form>
+<hr>
+    {% if promedio %}
+        <p>Promedio: {{ promedio }}</p>
+        <p>Asistencia: {{ asistencia }}%</p>
+        <p>Resultado: {{ mensaje }}</p>
+    {% endif %}
+<br>
+<a href="/">Volver al inicio</a>
+
+</div>
+{% endblock %}

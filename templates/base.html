@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Mi Aplicación{% endblock %}</title>
+
+    <!-- Cargar CSS desde static -->
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Evaluación 3</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Inicio</a> |
+            <a href="{{ url_for('ejercicio1') }}">Ejercicio 1</a> |
+            <a href="{{ url_for('ejercicio2') }}">Ejercicio 2</a>
+        </nav>
+        <hr>
+    </header>
+
+    <!-- Aquí se insertará el contenido de cada página -->
+    {% block content %}{% endblock %}
+
+</body>
+</html>

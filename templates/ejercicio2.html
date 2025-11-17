@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Ejercicio 2 - Formulario Nombres{% endblock %}
+
+{% block content %}
+<div class="container" >
+<h1>Formulario de Nombres</h1>
+
+<form action="/ejercicio2" method="post">
+
+    <label for="nombre1">Nombre 1:</label><br>
+    <input type="text" id="nombre1" name="nombre1" required><br><br>
+
+    <label for="nombre2">Nombre 2:</label><br>
+    <input type="text" id="nombre2" name="nombre2" required><br><br>
+
+    <label for="nombre3">Nombre 3:</label><br>
+    <input type="text" id="nombre3" name="nombre3" required><br><br>
+
+    <button type="submit">Enviar</button>
+</form>
+<hr>
+
+{% if nombre %}
+    <p>El nombre con mayor cantidad de caracteres es: <strong>{{ nombre }}</strong></p>
+    <p>El nombre tiene: <strong>{{ caracteres }}</strong> caracteres</p>
+{% endif %}
+
+<br>
+<a href="/">Volver al inicio</a>
+</div>
+{% endblock %}
